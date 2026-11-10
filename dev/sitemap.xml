@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+      <url>
+        <loc>https://johandielangman.github.io/stringz/dev/</loc>
+      </url>
+      <url>
+        <loc>https://johandielangman.github.io/stringz/dev/api_reference/</loc>
+      </url>
+      <url>
+        <loc>https://johandielangman.github.io/stringz/dev/api_reference/truncated_string/</loc>
+      </url>
+      <url>
+        <loc>https://johandielangman.github.io/stringz/dev/guide/</loc>
+      </url>
+      <url>
+        <loc>https://johandielangman.github.io/stringz/dev/guide/truncated_strings/</loc>
+      </url>
+      <url>
+        <loc>https://johandielangman.github.io/stringz/dev/installation/</loc>
+      </url>
+</urlset>
