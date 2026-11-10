@@ -56,11 +56,11 @@ value. It uses `trunc_str` under the hood.
 from stringz import TStr
 
 s = TStr("hello world", max_chars=10)
-print(s)        # hello w...
-len(s)          # 10
+print(s)  # hello w...
+len(s)  # 10
 ```
 
-Because `TStr` *is* a `str`, it works anywhere a normal string does. The difference
+Because `TStr` _is_ a `str`, it works anywhere a normal string does. The difference
 is that operations such as concatenation, repetition, formatting and slicing return
 new `TStr` instances that keep the `max_chars` limit:
 
@@ -68,8 +68,8 @@ new `TStr` instances that keep the `max_chars` limit:
 s1 = TStr("hello", max_chars=10)
 s2 = s1 + " world"
 
-type(s2)        # <class 'stringz.TStr'>
-print(s2)       # hello w...
+type(s2)  # <class 'stringz.TStr'>
+print(s2)  # hello w...
 ```
 
 Pass `max_chars=None` (the default) to disable truncation entirely while still
@@ -77,14 +77,14 @@ getting a `TStr`:
 
 ```python
 s = TStr("hello world")
-print(s)        # hello world
+print(s)  # hello world
 ```
 
 The placeholder can be customized as well:
 
 ```python
 s = TStr("hello world", max_chars=10, placeholder=">>")
-print(s)        # hello wo>>
+print(s)  # hello wo>>
 ```
 
 ### When to use which

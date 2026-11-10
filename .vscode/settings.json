@@ -23,6 +23,10 @@
       "source.fixAll.ruff": "explicit"
     }
   },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
   // Code formatting
   "editor.formatOnSave": true,
   // Editor settings
