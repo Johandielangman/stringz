@@ -1,0 +1,20 @@
+# Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
+_commit: c13c340
+_src_path: gh:/johandielangman/ppt
+contact_email: johan@datatreehouse.org
+github_username: johandielangman
+package_name: stringz
+project_author: Johandielangman
+project_description: Utilities library for working with strings
+project_name: stringz
+project_python_version: '3.12'
+project_slug: stringz
+python_versions:
+- '3.12'
+- '3.13'
+- '3.14'
+- '3.15'
+supported_operating_systems:
+- Windows
+- macOS
+- Linux

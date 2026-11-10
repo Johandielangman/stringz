@@ -1,0 +1,125 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "stringz"
+version = "0.1.0"
+description = "Utilities library for working with strings"
+readme = "README.md"
+requires-python = ">=3.12"
+license = "MIT"
+keywords = []
+authors = [{ name = "Johandielangman", email = "johan@datatreehouse.org" }]
+classifiers = [
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Programming Language :: Python :: 3.15",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: MacOS",
+    "Operating System :: POSIX :: Linux",
+]
+dependencies = []
+
+[dependency-groups]
+lint = ["ty", "ruff"]
+test = ["pytest", "pytest-cov", "pytest-pretty", "dirty-equals"]
+docs = ["zensical", "catppuccin-zensical", "mike", "mkdocstrings[python]"]
+release = ["git-cliff>=2.14.2"]
+dev = [
+    { include-group = "test" },
+    { include-group = "lint" },
+    { include-group = "docs" },
+    { include-group = "release" },
+]
+
+[project.urls]
+Changelog = "https://github.com/johandielangman/stringz/blob/main/CHANGELOG.md"
+Documentation = "https://johandielangman.github.io/stringz/"
+Issues = "https://github.com/johandielangman/stringz/issues"
+Source = "https://github.com/johandielangman/stringz"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/stringz"]
+
+[tool.ty.environment]
+root = ["./src", "."]
+python = ".venv"
+
+[tool.ruff]
+line-length = 120
+indent-width = 4
+target-version = "py312"
+
+[tool.ruff.lint]
+select = [
+    "E",
+    "F",
+    "B",
+    "I",
+    "FAST",
+    "A",
+    "C4",
+    "DTZ",
+    "ISC",
+    "ICN",
+    "LOG",
+    "PT",
+    "Q",
+    "RET",
+    "SIM",
+    "TID",
+    "ARG",
+    "PTH",
+    "N",
+    "PERF",
+    "RUF",
+]
+ignore = ["S101", "RUF100"]
+fixable = ["ALL"]
+unfixable = []
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+
+[tool.pytest.ini_options]
+addopts = [
+    "--import-mode=importlib",
+    "-rfExX",
+    "--durations=10",
+    "--durations-min=1",
+    "--doctest-modules",
+]
+minversion = "9.0"
+testpaths = ["tests", "src"]
+markers = ["integration: marks tests that are integration tests"]
+
+[tool.coverage.run]
+source_pkgs = ["stringz"]
+branch = true
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if self.debug:",
+    "if settings.DEBUG",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if 0:",
+    "if __name__ == .__main__.:",
+    "class .*\\bProtocol\\):",
+    "@(abc\\.)?abstractmethod",
+]
+show_missing = true
+
+[tool.uv.sources]
+# Zensical-compatible fork of mike (versioned docs); pinned to a commit via uv.lock
+mike = { git = "https://github.com/squidfunk/mike.git" }

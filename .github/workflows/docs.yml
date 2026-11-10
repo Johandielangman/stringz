@@ -1,0 +1,55 @@
+name: Docs
+
+on:
+  # Every push to main refreshes the "dev" docs.
+  push:
+    branches: [main]
+    paths:
+      - docs/**
+      - src/**
+      - zensical.toml
+      - .github/workflows/docs.yml
+  workflow_dispatch:
+  # release.yml calls this with a version to publish versioned docs + the "latest" alias.
+  workflow_call:
+    inputs:
+      version:
+        description: Release version to publish (without the leading "v")
+        type: string
+        required: true
+
+permissions: {}
+
+jobs:
+  deploy:
+    name: Deploy ${{ inputs.version || 'dev' }} docs
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write # mike pushes to the gh-pages branch
+    concurrency:
+      group: gh-pages
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1 # zizmor: ignore[artipacked] -- mike needs credentials to push gh-pages
+        with:
+          ref: ${{ inputs.version && format('v{0}', inputs.version) || github.ref }}
+          fetch-depth: 0 # mike needs the gh-pages branch
+      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+      - run: uv sync --locked --no-default-groups --group docs --no-install-project
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Deploy dev docs
+        if: ${{ !inputs.version }}
+        run: uv run mike deploy --push dev
+
+      - name: Deploy release docs
+        if: ${{ inputs.version }}
+        env:
+          VERSION: ${{ inputs.version }}
+        run: |
+          uv run mike deploy --push --update-aliases "$VERSION" latest
+          uv run mike set-default --push latest
