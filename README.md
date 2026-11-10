@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://johandielangman.github.io/stringz/">
-    <img src="https://raw.githubusercontent.com/johandielangman/stringz/main/docs/static/images/banner.svg" alt="stringz">
+    <img src="https://raw.githubusercontent.com/johandielangman/stringz/main/docs/static/images/banner_light.svg" alt="stringz">
   </a>
 </p>
 <p align="center">
@@ -18,7 +18,7 @@
 
 Simply install this amazing utilities package:
 
-``` console
+```console
 uv add stringz
 ```
 
