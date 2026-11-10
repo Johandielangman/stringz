@@ -832,8 +832,8 @@ value. It uses <code>trunc_str</code> under the hood.</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">stringz</span><span class="w"> </span><span class="kn">import</span> <span class="n">TStr</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">s</span> <span class="o">=</span> <span class="n">TStr</span><span class="p">(</span><span class="s2">"hello world"</span><span class="p">,</span> <span class="n">max_chars</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>        <span class="c1"># hello w...</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>          <span class="c1"># 10</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>  <span class="c1"># hello w...</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>  <span class="c1"># 10</span>
 </span></code></pre></div>
 <p>Because <code>TStr</code> <em>is</em> a <code>str</code>, it works anywhere a normal string does. The difference
 is that operations such as concatenation, repetition, formatting and slicing return
@@ -841,17 +841,17 @@ new <code>TStr</code> instances that keep the <code>max_chars</code> limit:</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">s1</span> <span class="o">=</span> <span class="n">TStr</span><span class="p">(</span><span class="s2">"hello"</span><span class="p">,</span> <span class="n">max_chars</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">s2</span> <span class="o">=</span> <span class="n">s1</span> <span class="o">+</span> <span class="s2">" world"</span>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="nb">type</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>        <span class="c1"># &lt;class 'stringz.TStr'&gt;</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>       <span class="c1"># hello w...</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="nb">type</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>  <span class="c1"># &lt;class 'stringz.TStr'&gt;</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>  <span class="c1"># hello w...</span>
 </span></code></pre></div>
 <p>Pass <code>max_chars=None</code> (the default) to disable truncation entirely while still
 getting a <code>TStr</code>:</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">s</span> <span class="o">=</span> <span class="n">TStr</span><span class="p">(</span><span class="s2">"hello world"</span><span class="p">)</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>        <span class="c1"># hello world</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>  <span class="c1"># hello world</span>
 </span></code></pre></div>
 <p>The placeholder can be customized as well:</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">s</span> <span class="o">=</span> <span class="n">TStr</span><span class="p">(</span><span class="s2">"hello world"</span><span class="p">,</span> <span class="n">max_chars</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">placeholder</span><span class="o">=</span><span class="s2">"&gt;&gt;"</span><span class="p">)</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>        <span class="c1"># hello wo&gt;&gt;</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>  <span class="c1"># hello wo&gt;&gt;</span>
 </span></code></pre></div>
 <h3 id="when-to-use-which">When to use which<a class="headerlink" href="#when-to-use-which" title="Permanent link">&para;</a></h3>
 <ul>
