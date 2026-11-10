@@ -1,0 +1,1430 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Utilities library for working with strings">
+      
+      
+        <meta name="author" content="Johandielangman">
+      
+      
+        <link rel="canonical" href="https://johandielangman.github.io/stringz/0.1.1/api_reference/truncated_string/">
+      
+      
+      
+        <link rel="prev" href="../">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../static/images/logo.svg">
+      <meta name="generator" content="zensical-0.1.1">
+    
+    
+      
+        <title>Truncated Strings - Stringz</title>
+      
+    
+    
+  
+      
+        
+      
+      <link rel="stylesheet" href="../../assets/stylesheets/modern/main.ebb7f775.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/modern/palette.b60ce83d.min.css">
+      
+      
+
+
+    
+  <link rel="stylesheet" href="../../assets/stylesheets/catppuccin.css">
+
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetbrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"Jetbrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../static/stylesheets/custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-hidden="true"></label>
+    <div data-md-component="skip">
+      <a href="#__skip" class="md-skip">
+        Skip to content
+      </a>
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Stringz" class="md-header__button md-logo" aria-label="Stringz" data-md-component="logo">
+      
+  <img src="../../static/images/logo.svg" alt="Stringz">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+      <span class="md-visually-hidden">Navigation</span>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Stringz
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Truncated Strings
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun-moon" viewBox="0 0 24 24"><path d="M12 2v2M14.837 16.385a6 6 0 1 1-7.223-7.222c.624-.147.97.66.715 1.248a4 4 0 0 0 5.26 5.259c.589-.255 1.396.09 1.248.715M16 12a4 4 0 0 0-4-4M19 5l-1.256 1.256M20 12h2"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="catppuccin-latte" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="catppuccin-macchiato" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+          <span class="md-visually-hidden">Search</span>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+        <a href="https://github.com/johandielangman/stringz" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    johandielangman/stringz
+  </div>
+</a>
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Stringz" class="md-nav__button md-logo" aria-label="Stringz" data-md-component="logo">
+      
+  <img src="../../static/images/logo.svg" alt="Stringz">
+
+    </a>
+    Stringz
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/johandielangman/stringz" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    johandielangman/stringz
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-house" viewBox="0 0 24 24"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Introduction
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installation/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-down-to-line" viewBox="0 0 24 24"><path d="M12 17V3M6 11l6 6 6-6M19 21H5"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Installation
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../guide/" class="md-nav__link ">
+              
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-map" viewBox="0 0 24 24"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0zM15 5.764v15M9 3.236v15"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Guide
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Guide
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guide/truncated_strings/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-scissors" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><path d="M8.12 8.12 12 12M20 4 8.12 15.88"/><circle cx="6" cy="18" r="3"/><path d="M14.8 14.8 20 20"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Truncated Strings
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-heart" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/><path d="M8.62 9.8A2.25 2.25 0 1 1 12 6.836a2.25 2.25 0 1 1 3.38 2.966l-2.626 2.856a.998.998 0 0 1-1.507 0z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  API Reference
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+            <label class="md-nav__title" for="__nav_4">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  API Reference
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+              
+                
+                  
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-scissors" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><path d="M8.12 8.12 12 12M20 4 8.12 15.88"/><circle cx="6" cy="18" r="3"/><path d="M14.8 14.8 20 20"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Truncated Strings
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-scissors" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><path d="M8.12 8.12 12 12M20 4 8.12 15.88"/><circle cx="6" cy="18" r="3"/><path d="M14.8 14.8 20 20"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Truncated Strings
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#trunc_str" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>trunc_str</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stringz.trunc_str" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code class="doc-symbol doc-symbol-toc doc-symbol-function"></code>&nbsp;trunc_str
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tstr" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>TStr</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stringz.TStr" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code class="doc-symbol doc-symbol-toc doc-symbol-class"></code>&nbsp;TStr
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="TStr">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stringz.TStr-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Attributes
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Attributes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stringz.TStr.max_chars" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code class="doc-symbol doc-symbol-toc doc-symbol-attribute"></code>&nbsp;max_chars
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringz.TStr.placeholder" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code class="doc-symbol doc-symbol-toc doc-symbol-attribute"></code>&nbsp;placeholder
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#trunc_str" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>trunc_str</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stringz.trunc_str" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code class="doc-symbol doc-symbol-toc doc-symbol-function"></code>&nbsp;trunc_str
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tstr" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>TStr</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stringz.TStr" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code class="doc-symbol doc-symbol-toc doc-symbol-class"></code>&nbsp;TStr
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="TStr">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stringz.TStr-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Attributes
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Attributes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stringz.TStr.max_chars" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code class="doc-symbol doc-symbol-toc doc-symbol-attribute"></code>&nbsp;max_chars
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringz.TStr.placeholder" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code class="doc-symbol doc-symbol-toc doc-symbol-attribute"></code>&nbsp;placeholder
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    API Reference
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                <a id="__skip" tabindex="-1"></a>
+                
+                  
+
+  
+  
+
+
+<h1 id="truncated-strings">Truncated Strings<a class="headerlink" href="#truncated-strings" title="Permanent link">&para;</a></h1>
+<h2 id="trunc_str"><code>trunc_str</code><a class="headerlink" href="#trunc_str" title="Permanent link">&para;</a></h2>
+
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="stringz.trunc_str" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>            <span class="doc doc-object-name doc-function-name">trunc_str</span>
+
+
+<a href="#stringz.trunc_str" class="headerlink" title="Permanent link">&para;</a></h2>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nf">trunc_str</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">max_chars</span><span class="p">,</span> <span class="n">placeholder</span><span class="o">=</span><span class="s1">'...'</span><span class="p">)</span>
+</span></code></pre></div>
+
+    <div class="doc doc-contents first">
+
+        <p>A function that truncates a string to a maximum number of characters,
+appending a placeholder if truncation occurs.</p>
+
+
+<details class="example" open>
+  <summary>Example</summary>
+  <p>Basic usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>from stringz import trunc_str
+trunc_str("hello world", max_chars=10)
+'hello w...'</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>No truncation needed:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>trunc_str("short", max_chars=10)
+'short'</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Custom placeholder:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>trunc_str("hello world", max_chars=10, placeholder="&gt;&gt;")
+'hello wo&gt;&gt;'</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Empty placeholder:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>trunc_str("hello world", max_chars=5, placeholder="")
+'hello'</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</details>
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>text</code>
+            </td>
+            <td>
+                  <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/builtins/stdtypes.html#str">str</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The string to be truncated.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>max_chars</code>
+            </td>
+            <td>
+                  <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/builtins/functions.html#int">int</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The maximum number of characters allowed in the output string.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>placeholder</code>
+            </td>
+            <td>
+                  <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/builtins/stdtypes.html#str">str</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The string to append if truncation occurs. Default is '...'.</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;...&#39;</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/builtins/stdtypes.html#str">str</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The truncated string, if necessary, with the placeholder appended.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/builtins/exceptions.html#TypeError">TypeError</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If text is not a string.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                  <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/builtins/exceptions.html#ValueError">ValueError</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If max_chars is not a positive integer or if placeholder length is greater than or
+equal to max_chars.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                  <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/builtins/exceptions.html#TypeError">TypeError</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If placeholder is not a string.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                  <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/builtins/exceptions.html#ValueError">ValueError</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If placeholder length is greater than or equal to max_chars.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>src/stringz/_truncated_string.py</code></summary>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-13">13</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-14">14</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-15">15</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-16">16</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-17">17</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-18">18</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-19">19</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-20">20</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-21">21</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-22">22</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-23">23</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-24">24</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-25">25</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-26">26</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-27">27</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-28">28</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-29">29</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-30">30</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-31">31</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-32">32</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-33">33</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-34">34</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-35">35</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-36">36</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-37">37</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-38">38</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-39">39</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-40">40</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-41">41</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-42">42</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-43">43</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-44">44</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-45">45</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-46">46</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-47">47</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-48">48</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-49">49</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-50">50</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-51">51</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-52">52</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-53">53</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-54">54</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-55">55</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-56">56</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-57">57</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-58">58</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-59">59</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-60">60</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-61">61</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-62">62</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-63">63</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-64">64</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-65">65</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-66">66</a></span>
+<span class="normal"><a href="#stringz.trunc_str--source--__codelineno-0-67">67</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="stringz.trunc_str--source--__span-0-4"><a id="stringz.trunc_str--source--__codelineno-0-4" name="stringz.trunc_str--source--__codelineno-0-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">trunc_str</span><span class="p">(</span>
+</span><span id="stringz.trunc_str--source--__span-0-5"><a id="stringz.trunc_str--source--__codelineno-0-5" name="stringz.trunc_str--source--__codelineno-0-5"></a>    <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+</span><span id="stringz.trunc_str--source--__span-0-6"><a id="stringz.trunc_str--source--__codelineno-0-6" name="stringz.trunc_str--source--__codelineno-0-6"></a>    <span class="n">max_chars</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+</span><span id="stringz.trunc_str--source--__span-0-7"><a id="stringz.trunc_str--source--__codelineno-0-7" name="stringz.trunc_str--source--__codelineno-0-7"></a>    <span class="n">placeholder</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"..."</span><span class="p">,</span>
+</span><span id="stringz.trunc_str--source--__span-0-8"><a id="stringz.trunc_str--source--__codelineno-0-8" name="stringz.trunc_str--source--__codelineno-0-8"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span><span id="stringz.trunc_str--source--__span-0-9"><a id="stringz.trunc_str--source--__codelineno-0-9" name="stringz.trunc_str--source--__codelineno-0-9"></a><span class="w">    </span><span class="sd">"""A function that truncates a string to a maximum number of characters,</span>
+</span><span id="stringz.trunc_str--source--__span-0-10"><a id="stringz.trunc_str--source--__codelineno-0-10" name="stringz.trunc_str--source--__codelineno-0-10"></a><span class="sd">    appending a placeholder if truncation occurs.</span>
+</span><span id="stringz.trunc_str--source--__span-0-11"><a id="stringz.trunc_str--source--__codelineno-0-11" name="stringz.trunc_str--source--__codelineno-0-11"></a>
+</span><span id="stringz.trunc_str--source--__span-0-12"><a id="stringz.trunc_str--source--__codelineno-0-12" name="stringz.trunc_str--source--__codelineno-0-12"></a><span class="sd">    Example:</span>
+</span><span id="stringz.trunc_str--source--__span-0-13"><a id="stringz.trunc_str--source--__codelineno-0-13" name="stringz.trunc_str--source--__codelineno-0-13"></a><span class="sd">        Basic usage:</span>
+</span><span id="stringz.trunc_str--source--__span-0-14"><a id="stringz.trunc_str--source--__codelineno-0-14" name="stringz.trunc_str--source--__codelineno-0-14"></a>
+</span><span id="stringz.trunc_str--source--__span-0-15"><a id="stringz.trunc_str--source--__codelineno-0-15" name="stringz.trunc_str--source--__codelineno-0-15"></a><span class="sd">        &gt;&gt;&gt; from stringz import trunc_str</span>
+</span><span id="stringz.trunc_str--source--__span-0-16"><a id="stringz.trunc_str--source--__codelineno-0-16" name="stringz.trunc_str--source--__codelineno-0-16"></a><span class="sd">        &gt;&gt;&gt; trunc_str("hello world", max_chars=10)</span>
+</span><span id="stringz.trunc_str--source--__span-0-17"><a id="stringz.trunc_str--source--__codelineno-0-17" name="stringz.trunc_str--source--__codelineno-0-17"></a><span class="sd">        'hello w...'</span>
+</span><span id="stringz.trunc_str--source--__span-0-18"><a id="stringz.trunc_str--source--__codelineno-0-18" name="stringz.trunc_str--source--__codelineno-0-18"></a>
+</span><span id="stringz.trunc_str--source--__span-0-19"><a id="stringz.trunc_str--source--__codelineno-0-19" name="stringz.trunc_str--source--__codelineno-0-19"></a><span class="sd">        No truncation needed:</span>
+</span><span id="stringz.trunc_str--source--__span-0-20"><a id="stringz.trunc_str--source--__codelineno-0-20" name="stringz.trunc_str--source--__codelineno-0-20"></a>
+</span><span id="stringz.trunc_str--source--__span-0-21"><a id="stringz.trunc_str--source--__codelineno-0-21" name="stringz.trunc_str--source--__codelineno-0-21"></a><span class="sd">        &gt;&gt;&gt; trunc_str("short", max_chars=10)</span>
+</span><span id="stringz.trunc_str--source--__span-0-22"><a id="stringz.trunc_str--source--__codelineno-0-22" name="stringz.trunc_str--source--__codelineno-0-22"></a><span class="sd">        'short'</span>
+</span><span id="stringz.trunc_str--source--__span-0-23"><a id="stringz.trunc_str--source--__codelineno-0-23" name="stringz.trunc_str--source--__codelineno-0-23"></a>
+</span><span id="stringz.trunc_str--source--__span-0-24"><a id="stringz.trunc_str--source--__codelineno-0-24" name="stringz.trunc_str--source--__codelineno-0-24"></a><span class="sd">        Custom placeholder:</span>
+</span><span id="stringz.trunc_str--source--__span-0-25"><a id="stringz.trunc_str--source--__codelineno-0-25" name="stringz.trunc_str--source--__codelineno-0-25"></a>
+</span><span id="stringz.trunc_str--source--__span-0-26"><a id="stringz.trunc_str--source--__codelineno-0-26" name="stringz.trunc_str--source--__codelineno-0-26"></a><span class="sd">        &gt;&gt;&gt; trunc_str("hello world", max_chars=10, placeholder="&gt;&gt;")</span>
+</span><span id="stringz.trunc_str--source--__span-0-27"><a id="stringz.trunc_str--source--__codelineno-0-27" name="stringz.trunc_str--source--__codelineno-0-27"></a><span class="sd">        'hello wo&gt;&gt;'</span>
+</span><span id="stringz.trunc_str--source--__span-0-28"><a id="stringz.trunc_str--source--__codelineno-0-28" name="stringz.trunc_str--source--__codelineno-0-28"></a>
+</span><span id="stringz.trunc_str--source--__span-0-29"><a id="stringz.trunc_str--source--__codelineno-0-29" name="stringz.trunc_str--source--__codelineno-0-29"></a><span class="sd">        Empty placeholder:</span>
+</span><span id="stringz.trunc_str--source--__span-0-30"><a id="stringz.trunc_str--source--__codelineno-0-30" name="stringz.trunc_str--source--__codelineno-0-30"></a>
+</span><span id="stringz.trunc_str--source--__span-0-31"><a id="stringz.trunc_str--source--__codelineno-0-31" name="stringz.trunc_str--source--__codelineno-0-31"></a><span class="sd">        &gt;&gt;&gt; trunc_str("hello world", max_chars=5, placeholder="")</span>
+</span><span id="stringz.trunc_str--source--__span-0-32"><a id="stringz.trunc_str--source--__codelineno-0-32" name="stringz.trunc_str--source--__codelineno-0-32"></a><span class="sd">        'hello'</span>
+</span><span id="stringz.trunc_str--source--__span-0-33"><a id="stringz.trunc_str--source--__codelineno-0-33" name="stringz.trunc_str--source--__codelineno-0-33"></a>
+</span><span id="stringz.trunc_str--source--__span-0-34"><a id="stringz.trunc_str--source--__codelineno-0-34" name="stringz.trunc_str--source--__codelineno-0-34"></a><span class="sd">    Args:</span>
+</span><span id="stringz.trunc_str--source--__span-0-35"><a id="stringz.trunc_str--source--__codelineno-0-35" name="stringz.trunc_str--source--__codelineno-0-35"></a><span class="sd">        text: The string to be truncated.</span>
+</span><span id="stringz.trunc_str--source--__span-0-36"><a id="stringz.trunc_str--source--__codelineno-0-36" name="stringz.trunc_str--source--__codelineno-0-36"></a><span class="sd">        max_chars: The maximum number of characters allowed in the output string.</span>
+</span><span id="stringz.trunc_str--source--__span-0-37"><a id="stringz.trunc_str--source--__codelineno-0-37" name="stringz.trunc_str--source--__codelineno-0-37"></a><span class="sd">        placeholder: The string to append if truncation occurs. Default is '...'.</span>
+</span><span id="stringz.trunc_str--source--__span-0-38"><a id="stringz.trunc_str--source--__codelineno-0-38" name="stringz.trunc_str--source--__codelineno-0-38"></a>
+</span><span id="stringz.trunc_str--source--__span-0-39"><a id="stringz.trunc_str--source--__codelineno-0-39" name="stringz.trunc_str--source--__codelineno-0-39"></a><span class="sd">    Returns:</span>
+</span><span id="stringz.trunc_str--source--__span-0-40"><a id="stringz.trunc_str--source--__codelineno-0-40" name="stringz.trunc_str--source--__codelineno-0-40"></a><span class="sd">        The truncated string, if necessary, with the placeholder appended.</span>
+</span><span id="stringz.trunc_str--source--__span-0-41"><a id="stringz.trunc_str--source--__codelineno-0-41" name="stringz.trunc_str--source--__codelineno-0-41"></a>
+</span><span id="stringz.trunc_str--source--__span-0-42"><a id="stringz.trunc_str--source--__codelineno-0-42" name="stringz.trunc_str--source--__codelineno-0-42"></a><span class="sd">    Raises:</span>
+</span><span id="stringz.trunc_str--source--__span-0-43"><a id="stringz.trunc_str--source--__codelineno-0-43" name="stringz.trunc_str--source--__codelineno-0-43"></a><span class="sd">        TypeError: If text is not a string.</span>
+</span><span id="stringz.trunc_str--source--__span-0-44"><a id="stringz.trunc_str--source--__codelineno-0-44" name="stringz.trunc_str--source--__codelineno-0-44"></a><span class="sd">        ValueError: If max_chars is not a positive integer or if placeholder length is greater than or</span>
+</span><span id="stringz.trunc_str--source--__span-0-45"><a id="stringz.trunc_str--source--__codelineno-0-45" name="stringz.trunc_str--source--__codelineno-0-45"></a><span class="sd">            equal to max_chars.</span>
+</span><span id="stringz.trunc_str--source--__span-0-46"><a id="stringz.trunc_str--source--__codelineno-0-46" name="stringz.trunc_str--source--__codelineno-0-46"></a><span class="sd">        TypeError: If placeholder is not a string.</span>
+</span><span id="stringz.trunc_str--source--__span-0-47"><a id="stringz.trunc_str--source--__codelineno-0-47" name="stringz.trunc_str--source--__codelineno-0-47"></a><span class="sd">        ValueError: If placeholder length is greater than or equal to max_chars.</span>
+</span><span id="stringz.trunc_str--source--__span-0-48"><a id="stringz.trunc_str--source--__codelineno-0-48" name="stringz.trunc_str--source--__codelineno-0-48"></a><span class="sd">    """</span>
+</span><span id="stringz.trunc_str--source--__span-0-49"><a id="stringz.trunc_str--source--__codelineno-0-49" name="stringz.trunc_str--source--__codelineno-0-49"></a>
+</span><span id="stringz.trunc_str--source--__span-0-50"><a id="stringz.trunc_str--source--__codelineno-0-50" name="stringz.trunc_str--source--__codelineno-0-50"></a>    <span class="c1"># ====&gt; VALIDATION</span>
+</span><span id="stringz.trunc_str--source--__span-0-51"><a id="stringz.trunc_str--source--__codelineno-0-51" name="stringz.trunc_str--source--__codelineno-0-51"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+</span><span id="stringz.trunc_str--source--__span-0-52"><a id="stringz.trunc_str--source--__codelineno-0-52" name="stringz.trunc_str--source--__codelineno-0-52"></a>        <span class="n">_err</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"text must be a string, not </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">text</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">"</span>
+</span><span id="stringz.trunc_str--source--__span-0-53"><a id="stringz.trunc_str--source--__codelineno-0-53" name="stringz.trunc_str--source--__codelineno-0-53"></a>        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">_err</span><span class="p">)</span>
+</span><span id="stringz.trunc_str--source--__span-0-54"><a id="stringz.trunc_str--source--__codelineno-0-54" name="stringz.trunc_str--source--__codelineno-0-54"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">max_chars</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">or</span> <span class="n">max_chars</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+</span><span id="stringz.trunc_str--source--__span-0-55"><a id="stringz.trunc_str--source--__codelineno-0-55" name="stringz.trunc_str--source--__codelineno-0-55"></a>        <span class="n">_err</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"max_chars must be a positive integer, got </span><span class="si">{</span><span class="n">max_chars</span><span class="si">}</span><span class="s2">"</span>
+</span><span id="stringz.trunc_str--source--__span-0-56"><a id="stringz.trunc_str--source--__codelineno-0-56" name="stringz.trunc_str--source--__codelineno-0-56"></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">_err</span><span class="p">)</span>
+</span><span id="stringz.trunc_str--source--__span-0-57"><a id="stringz.trunc_str--source--__codelineno-0-57" name="stringz.trunc_str--source--__codelineno-0-57"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">placeholder</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+</span><span id="stringz.trunc_str--source--__span-0-58"><a id="stringz.trunc_str--source--__codelineno-0-58" name="stringz.trunc_str--source--__codelineno-0-58"></a>        <span class="n">_err</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"placeholder must be a string, not </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">placeholder</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">"</span>
+</span><span id="stringz.trunc_str--source--__span-0-59"><a id="stringz.trunc_str--source--__codelineno-0-59" name="stringz.trunc_str--source--__codelineno-0-59"></a>        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">_err</span><span class="p">)</span>
+</span><span id="stringz.trunc_str--source--__span-0-60"><a id="stringz.trunc_str--source--__codelineno-0-60" name="stringz.trunc_str--source--__codelineno-0-60"></a>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">placeholder</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">max_chars</span><span class="p">:</span>
+</span><span id="stringz.trunc_str--source--__span-0-61"><a id="stringz.trunc_str--source--__codelineno-0-61" name="stringz.trunc_str--source--__codelineno-0-61"></a>        <span class="n">_err</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"placeholder length (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">placeholder</span><span class="p">)</span><span class="si">}</span><span class="s2">) must be smaller than max_chars (</span><span class="si">{</span><span class="n">max_chars</span><span class="si">}</span><span class="s2">)"</span>
+</span><span id="stringz.trunc_str--source--__span-0-62"><a id="stringz.trunc_str--source--__codelineno-0-62" name="stringz.trunc_str--source--__codelineno-0-62"></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">_err</span><span class="p">)</span>
+</span><span id="stringz.trunc_str--source--__span-0-63"><a id="stringz.trunc_str--source--__codelineno-0-63" name="stringz.trunc_str--source--__codelineno-0-63"></a>
+</span><span id="stringz.trunc_str--source--__span-0-64"><a id="stringz.trunc_str--source--__codelineno-0-64" name="stringz.trunc_str--source--__codelineno-0-64"></a>    <span class="c1"># ====&gt; TRUNCATE</span>
+</span><span id="stringz.trunc_str--source--__span-0-65"><a id="stringz.trunc_str--source--__codelineno-0-65" name="stringz.trunc_str--source--__codelineno-0-65"></a>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">max_chars</span><span class="p">:</span>
+</span><span id="stringz.trunc_str--source--__span-0-66"><a id="stringz.trunc_str--source--__codelineno-0-66" name="stringz.trunc_str--source--__codelineno-0-66"></a>        <span class="k">return</span> <span class="n">text</span>
+</span><span id="stringz.trunc_str--source--__span-0-67"><a id="stringz.trunc_str--source--__codelineno-0-67" name="stringz.trunc_str--source--__codelineno-0-67"></a>    <span class="k">return</span> <span class="n">text</span><span class="p">[:</span> <span class="n">max_chars</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">placeholder</span><span class="p">)]</span> <span class="o">+</span> <span class="n">placeholder</span>
+</span></code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div><h2 id="tstr"><code>TStr</code><a class="headerlink" href="#tstr" title="Permanent link">&para;</a></h2>
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="stringz.TStr" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>            <span class="doc doc-object-name doc-class-name">TStr</span>
+
+
+<a href="#stringz.TStr" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents first">
+            <p class="doc doc-class-bases">
+              Bases: <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/builtins/stdtypes.html#str">str</a></code></p>
+
+
+
+        <p>A string subclass that automatically truncates its content to a maximum length when created or modified through
+string operations. The TStr class uses the <code>trunc_str</code> function for truncation under the hood.</p>
+
+
+<details class="example" open>
+  <summary>Example</summary>
+  <p>Basic creation:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>from stringz import TStr
+s = TStr("hello world", max_chars=10)
+print(s)
+hello w...
+len(s)
+10</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>String operations maintain TStr type and truncation:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>s1 = TStr("hello", max_chars=10)
+s2 = s1 + " world"
+type(s2)
+&lt;class 'stringz._truncated_string.TStr'&gt;
+print(s2)
+hello w...</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</details>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+<h3 id="stringz.TStr-attributes">Attributes<a href="#stringz.TStr-attributes" class="headerlink" title="Permanent link">&para;</a></h3>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="stringz.TStr.max_chars" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>            <span class="doc doc-object-name doc-attribute-name">max_chars</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+<a href="#stringz.TStr.max_chars" class="headerlink" title="Permanent link">&para;</a></h4>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">max_chars</span>
+</span></code></pre></div>
+
+    <div class="doc doc-contents ">
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="stringz.TStr.placeholder" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>            <span class="doc doc-object-name doc-attribute-name">placeholder</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+<a href="#stringz.TStr.placeholder" class="headerlink" title="Permanent link">&para;</a></h4>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">placeholder</span>
+</span></code></pre></div>
+
+    <div class="doc doc-contents ">
+
+    </div>
+
+</div>
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Overview">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Overview
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Johandielangman
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+  
+    <div class="md-copyright__catppuccin">
+      Styled with
+      <a href="https://jonathan343.github.io/catppuccin-zensical/" target="_blank" rel="noopener">
+        catppuccin-zensical
+      </a>
+    </div>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"../..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.top","navigation.tracking","search.highlight"],"redirect":null,"search":"../../assets/javascripts/workers/search.719e0d91.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":{"provider":"mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.3cb411a8.min.js"></script>
+      
+    
+  </body>
+</html>
