@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file.
 
+## [0.1.3](https://github.com/johandielangman/stringz/releases/tag/v0.1.3) - 2026-11-11
+
+### Documentation
+
+- Update readme ([e9d14d2](https://github.com/johandielangman/stringz/commit/e9d14d25ef1450634343310bce284a9b57a90575))
+
 ## [0.1.2](https://github.com/johandielangman/stringz/releases/tag/v0.1.2) - 2026-11-11
 
 ### Documentation
