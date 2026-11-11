@@ -7,7 +7,7 @@ icon: lucide/scissors
 `stringz` provides two ways to truncate strings: the `trunc_str` function for one-off
 truncation, and the `TStr` class for strings that stay truncated as you work with them.
 
-## `trunc_str`
+## `trunc_str` for once off truncation
 
 `trunc_str` truncates a string to a maximum number of characters, appending a
 placeholder when truncation occurs.
@@ -26,30 +26,21 @@ trunc_str("short", max_chars=10)
 # 'short'
 ```
 
-The placeholder is included in the character budget, and can be customized — or left
+The placeholder is included in the character budget, and can be customized or left
 empty to simply cut the string off:
 
 ```python
-trunc_str("hello world", max_chars=10, placeholder=">>")
+trunc_str("hello world", max_chars=10, placeholder=">>")  # weird, but sure!
 # 'hello wo>>'
 
 trunc_str("hello world", max_chars=5, placeholder="")
 # 'hello'
 ```
 
-### Validation
+## `TStr` for continuous truncation
 
-`trunc_str` validates its inputs and raises:
-
-- `TypeError` if `text` or `placeholder` is not a string.
-- `ValueError` if `max_chars` is not a positive integer.
-- `ValueError` if the placeholder is longer than or equal to `max_chars` — there
-  would be no room left for actual content.
-
-## `TStr`
-
-`TStr` is a subclass of `str` that automatically truncates its content to a maximum
-length — not just when it is created, but whenever string operations produce a new
+`TStr` is a subclass of `str` (for type hinting reasons) that automatically truncates its content to a maximum
+length. Not only does it truncate when it is created, but whenever string operations produce a new
 value. It uses `trunc_str` under the hood.
 
 ```python
@@ -86,10 +77,3 @@ The placeholder can be customized as well:
 s = TStr("hello world", max_chars=10, placeholder=">>")
 print(s)  # hello wo>>
 ```
-
-### When to use which
-
-- Use `trunc_str` when you need to shorten a single value once — e.g. trimming text
-  before logging or displaying it.
-- Use `TStr` when the limit should travel with the value — e.g. a field that must
-  never exceed a column width, even after being concatenated or reformatted.
