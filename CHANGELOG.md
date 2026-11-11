@@ -2,6 +2,13 @@
 
 All notable changes to this project are documented in this file.
 
+## [0.1.2](https://github.com/johandielangman/stringz/releases/tag/v0.1.2) - 2026-11-11
+
+### Documentation
+
+- Add light mode banner ([5bbfc7d](https://github.com/johandielangman/stringz/commit/5bbfc7d8a05f775e12ddcf7ac03830f4c3c7bf14))
+- Badges and better docs ([cafd1ab](https://github.com/johandielangman/stringz/commit/cafd1abfafe6288820522f65f0655faa2bd0a8d7))
+
 ## [0.1.1](https://github.com/johandielangman/stringz/releases/tag/v0.1.1) - 2026-11-10
 
 ### Miscellaneous
