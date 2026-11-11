@@ -27,9 +27,9 @@ uv add stringz
 And immediately get the benefits
 
 ```python
-from stringz import pretty_str, ding
+from stringz import trunc_str
 
-result = pretty_str("Hello world!", max_chars=10)
+result = trunc_str("Hello world!", max_chars=10)
 print(result)  # Output: 'Hello w...'
 ```
 
