@@ -443,58 +443,24 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#trunc_str" class="md-nav__link">
+  <a href="#trunc_str-for-once-off-truncation" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        <code>trunc_str</code>
+        <code>trunc_str</code> for once off truncation
       </span>
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="trunc_str">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#validation" class="md-nav__link">
-    <span class="md-ellipsis">
-      <span class="md-typeset">
-        Validation
-      </span>
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#tstr" class="md-nav__link">
+  <a href="#tstr-for-continuous-truncation" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        <code>TStr</code>
+        <code>TStr</code> for continuous truncation
       </span>
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="TStr">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#when-to-use-which" class="md-nav__link">
-    <span class="md-ellipsis">
-      <span class="md-typeset">
-        When to use which
-      </span>
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -658,58 +624,24 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#trunc_str" class="md-nav__link">
+  <a href="#trunc_str-for-once-off-truncation" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        <code>trunc_str</code>
+        <code>trunc_str</code> for once off truncation
       </span>
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="trunc_str">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#validation" class="md-nav__link">
-    <span class="md-ellipsis">
-      <span class="md-typeset">
-        Validation
-      </span>
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#tstr" class="md-nav__link">
+  <a href="#tstr-for-continuous-truncation" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        <code>TStr</code>
+        <code>TStr</code> for continuous truncation
       </span>
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="TStr">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#when-to-use-which" class="md-nav__link">
-    <span class="md-ellipsis">
-      <span class="md-typeset">
-        When to use which
-      </span>
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -797,7 +729,7 @@
 <h1 id="truncated-strings">Truncated Strings<a class="headerlink" href="#truncated-strings" title="Permanent link">&para;</a></h1>
 <p><code>stringz</code> provides two ways to truncate strings: the <code>trunc_str</code> function for one-off
 truncation, and the <code>TStr</code> class for strings that stay truncated as you work with them.</p>
-<h2 id="trunc_str"><code>trunc_str</code><a class="headerlink" href="#trunc_str" title="Permanent link">&para;</a></h2>
+<h2 id="trunc_str-for-once-off-truncation"><code>trunc_str</code> for once off truncation<a class="headerlink" href="#trunc_str-for-once-off-truncation" title="Permanent link">&para;</a></h2>
 <p><code>trunc_str</code> truncates a string to a maximum number of characters, appending a
 placeholder when truncation occurs.</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">stringz</span><span class="w"> </span><span class="kn">import</span> <span class="n">trunc_str</span>
@@ -809,25 +741,17 @@ placeholder when truncation occurs.</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">trunc_str</span><span class="p">(</span><span class="s2">"short"</span><span class="p">,</span> <span class="n">max_chars</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1"># 'short'</span>
 </span></code></pre></div>
-<p>The placeholder is included in the character budget, and can be customized — or left
+<p>The placeholder is included in the character budget, and can be customized or left
 empty to simply cut the string off:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">trunc_str</span><span class="p">(</span><span class="s2">"hello world"</span><span class="p">,</span> <span class="n">max_chars</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">placeholder</span><span class="o">=</span><span class="s2">"&gt;&gt;"</span><span class="p">)</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">trunc_str</span><span class="p">(</span><span class="s2">"hello world"</span><span class="p">,</span> <span class="n">max_chars</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">placeholder</span><span class="o">=</span><span class="s2">"&gt;&gt;"</span><span class="p">)</span>  <span class="c1"># weird, but sure!</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="c1"># 'hello wo&gt;&gt;'</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">trunc_str</span><span class="p">(</span><span class="s2">"hello world"</span><span class="p">,</span> <span class="n">max_chars</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">placeholder</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span>
 </span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c1"># 'hello'</span>
 </span></code></pre></div>
-<h3 id="validation">Validation<a class="headerlink" href="#validation" title="Permanent link">&para;</a></h3>
-<p><code>trunc_str</code> validates its inputs and raises:</p>
-<ul>
-<li><code>TypeError</code> if <code>text</code> or <code>placeholder</code> is not a string.</li>
-<li><code>ValueError</code> if <code>max_chars</code> is not a positive integer.</li>
-<li><code>ValueError</code> if the placeholder is longer than or equal to <code>max_chars</code> — there
-  would be no room left for actual content.</li>
-</ul>
-<h2 id="tstr"><code>TStr</code><a class="headerlink" href="#tstr" title="Permanent link">&para;</a></h2>
-<p><code>TStr</code> is a subclass of <code>str</code> that automatically truncates its content to a maximum
-length — not just when it is created, but whenever string operations produce a new
+<h2 id="tstr-for-continuous-truncation"><code>TStr</code> for continuous truncation<a class="headerlink" href="#tstr-for-continuous-truncation" title="Permanent link">&para;</a></h2>
+<p><code>TStr</code> is a subclass of <code>str</code> (for type hinting reasons) that automatically truncates its content to a maximum
+length. Not only does it truncate when it is created, but whenever string operations produce a new
 value. It uses <code>trunc_str</code> under the hood.</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">stringz</span><span class="w"> </span><span class="kn">import</span> <span class="n">TStr</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
@@ -853,13 +777,6 @@ getting a <code>TStr</code>:</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">s</span> <span class="o">=</span> <span class="n">TStr</span><span class="p">(</span><span class="s2">"hello world"</span><span class="p">,</span> <span class="n">max_chars</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">placeholder</span><span class="o">=</span><span class="s2">"&gt;&gt;"</span><span class="p">)</span>
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>  <span class="c1"># hello wo&gt;&gt;</span>
 </span></code></pre></div>
-<h3 id="when-to-use-which">When to use which<a class="headerlink" href="#when-to-use-which" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Use <code>trunc_str</code> when you need to shorten a single value once — e.g. trimming text
-  before logging or displaying it.</li>
-<li>Use <code>TStr</code> when the limit should travel with the value — e.g. a field that must
-  never exceed a column width, even after being concatenated or reformatted.</li>
-</ul>
 
 
 
